@@ -32,8 +32,8 @@ install:
   - git clone https://github.com/TechXueXi/TechXueXi.git TechXueXi
 # command to run tests
 script:
-  - cp kjqg.ico ./TechXueXi/Source Packages/
-  - cd TechXueXi/Source Packages/
+  - cp kjqg.ico ./TechXueXi/SourcePackages/
+  - cd TechXueXi/SourcePackages/
   - pyinstaller -F pandalearning.py -i "kjqg.ico" -n TechXueXi
   - cd dist
   - git init
