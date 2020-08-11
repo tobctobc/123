@@ -1,0 +1,46 @@
+language: shell
+os: windows
+sudo: required
+# command to install dependencies-P /c/Python36 /c/Python36/
+before_install:
+  - rm -r -f /c/Python27
+  - powershell -Command "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"
+  - powershell -Command "Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')"
+  #- cd /c/Users/travis/
+  #- ls -l
+  #- cd /c/Users/travis/scoop/shims
+  #- ls -l
+  - scoop help
+  - scoop install python -a x86
+  #- scoop install python@3.6.8 -a x86
+  #- scoop hold python
+  - python -V
+  #- wget -O python-3.6.4.exe -nv https://www.python.org/ftp/python/3.6.4/python-3.6.4.exe 
+
+env: PATH=/c/Users/travis/scoop/apps/python/current:/c/Users/travis/scoop/apps/python/current/Scripts:/c/Users/travis/scoop/apps/python/current/Tools/Scripts:/c/Users/travis/scoop/shims:/c/Users/travis/scoop:$PATH
+install:
+  #- ./python-3.6.4.exe InstallAllUsers=1 PrependPath=1
+  
+  - python -m pip install --upgrade pip
+  - pip install --upgrade pip
+  - export TZ='Asia/Shanghai'
+  - git config --global user.name cjh0613
+  - git config --global user.email cjhbruce@foxmail.com
+  - pip install requests
+  - pip install selenium
+  - pip install pyinstaller
+  - git clone git@github.com:TechXueXi/TechXueXi.git TechXueXi
+# command to run tests
+script:
+  - cp kjqg.ico ./TechXueXi/Source Packages/
+  - cd TechXueXi/Source Packages/
+  - pyinstaller -F pandalearning.py -i "kjqg.ico" -n TechXueXi
+  - cd dist
+  - git init
+  - git add -A
+  - git commit -m "更新`date +"% Y-% m-% d % H:% M"`"
+  - git push -f "https://tobctobc:${TOKEN}@github.com/TechXueXi/TechXueXi-download.git" master:master
+
+branches:
+  only:
+    - master
