@@ -29,7 +29,7 @@ install:
   - pip install requests
   - pip install selenium
   - pip install pyinstaller
-  - git clone git@github.com:TechXueXi/TechXueXi.git TechXueXi
+  - git clone https://github.com/TechXueXi/TechXueXi.git TechXueXi
 # command to run tests
 script:
   - cp kjqg.ico ./TechXueXi/Source Packages/
