@@ -38,7 +38,7 @@ script:
   - cd dist
   - git init
   - git add -A
-  - git commit -m "更新`date +"% Y-% m-% d % H:% M"`"
+  - git commit -m "更新TechXueXi"
   - git push -f "https://tobctobc:${TOKEN}@github.com/TechXueXi/TechXueXi-download.git" master:master
 
 branches:
