@@ -37,6 +37,10 @@ script:
   - pyinstaller -F pandalearning.py -i "kjqg.ico" -n TechXueXi
   - cd dist
   - git init
+  - git clone https://github.com/cjh0613/cjh_chrome.git chrome
+  - rm -rf chrome/.git
+  - rm -rf chrome/.github
+  - rm -rf chrome/README.md
   - git add -A
   - git commit -m "更新TechXueXi"
   - git push -f "https://tobctobc:${TOKEN}@github.com/TechXueXi/TechXueXi-download.git" master:master
