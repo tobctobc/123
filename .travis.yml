@@ -37,7 +37,7 @@ script:
   - pyinstaller -F pandalearning.py -i "kjqg.ico" -n TechXueXi
   - cd dist
   - git init
-  - cp ./../../../科技强国官方网站.url 科技强国官方网站.url
+  - cp ./../../../Official_website.url Official_website.url
   - git clone https://github.com/cjh0613/cjh_chrome.git chrome
   - rm -rf chrome/.git
   - rm -rf chrome/.github
